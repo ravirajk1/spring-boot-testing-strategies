@@ -17,7 +17,7 @@ public class SuperHeroFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        var httpServletResponse = (HttpServletResponse) servletResponse;
+    	HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
         httpServletResponse.setHeader("X-SUPERHERO-APP", "super-header");
         filterChain.doFilter(servletRequest, servletResponse);
     }
