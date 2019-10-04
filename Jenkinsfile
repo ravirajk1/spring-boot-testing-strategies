@@ -9,19 +9,19 @@ pipeline {
     stages {
         stage ('Compile') {
 		    steps {
-				sh 'mvn clean compile'
+				bat 'mvn clean compile'
 			}
         }
 
         stage ('Build') {
             steps {
-				sh 'mvn -B -DskipTests clean package'
+				bat 'mvn -B -DskipTests clean package'
 			}
         }
 		
 		stage('Test') {
 			steps {
-					sh 'mvn test'
+					bat 'mvn test'
 			}
 			post {
 				always {
