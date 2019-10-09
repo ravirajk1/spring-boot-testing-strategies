@@ -15,7 +15,7 @@
 
         stage ('Build') {
             steps {
-				bat 'mvn -B -DskipTests clean package'
+				bat 'mvn -B -DskipTests clean install'
 			}
         }
 		
