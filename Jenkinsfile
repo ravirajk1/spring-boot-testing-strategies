@@ -31,9 +31,15 @@
             
         }
        
-        stage('Build and Publisg Docker Image') {
+        stage('Build Docker Image') {
 	      steps {
-	        bat 'mvn package dockerfile:build -DpushImage'
+	        bat 'mvn dockerfile:build'
+	      }
+        }
+       
+        stage('Publish Docker Image') {
+	      steps {
+	        bat 'mvn dockerfile:push'
 	      }
         }
     }
