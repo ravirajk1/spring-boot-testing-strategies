@@ -31,13 +31,13 @@
             
         }
        
-        stage('Build Docker Image') {
+        stage('Build Image') {
 	      steps {
 	        bat 'mvn dockerfile:build'
 	      }
         }
        
-        stage('Publish Docker Image') {
+        stage('Publish Image') {
 	      steps {
 	        bat 'mvn dockerfile:push'
 	      }
