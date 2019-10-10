@@ -9,19 +9,19 @@
     stages {
         stage ('Compile') {
 		    steps {
-				bat 'mvn clean compile'
+				sh 'mvn clean compile'
 			}
         }
 
         stage ('Build') {
             steps {
-				bat 'mvn -B -DskipTests clean install'
+				sh 'mvn -B -DskipTests clean install'
 			}
         }
 		
 		stage('Test') {
 			steps {
-					bat 'mvn test'
+					sh 'mvn test'
 			}
 			post {
 				always {
@@ -33,13 +33,13 @@
        
         stage('Build Image') {
 	      steps {
-	        bat 'mvn dockerfile:build'
+	        sh 'mvn dockerfile:build'
 	      }
         }
        
         stage('Publish Image') {
 	      steps {
-	        bat 'mvn dockerfile:push'
+	        sh 'mvn dockerfile:push'
 	      }
         }
     }
