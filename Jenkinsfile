@@ -5,7 +5,7 @@
         maven 'apache-maven-3.6.0'
         jdk 'jdk1.8.0_191'
     }
-
+     
     stages {
         stage ('Compile') {
 		    steps {
@@ -29,6 +29,12 @@
 				}
 			}
             
+        }
+       
+        stage('Build and Publisg Docker Image') {
+	      steps {
+	        bat 'mvn package dockerfile:build -DpushImage'
+	      }
         }
     }
 }
