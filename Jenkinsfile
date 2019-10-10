@@ -12,14 +12,8 @@
 				bat 'mvn clean compile'
 			}
         }
-
-        stage ('Build') {
-            steps {
-				bat 'mvn -B -DskipTests clean install'
-			}
-        }
-		
-		stage('Test') {
+       
+        stage('Test') {
 			steps {
 					bat 'mvn test'
 			}
@@ -30,7 +24,13 @@
 			}
             
         }
-       
+
+        stage ('Package') {
+            steps {
+				bat 'mvn package'
+			}
+        }
+		
         stage('Build Image') {
 	      steps {
 	        bat 'mvn dockerfile:build'
